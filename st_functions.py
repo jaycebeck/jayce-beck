@@ -1,13 +1,18 @@
 import streamlit as st
 
+
 def load_css():
     with open("style.css") as f:
-        st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
-    st.markdown('<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">', unsafe_allow_html=True)
+        st.markdown("<style>{}</style>".format(f.read()), unsafe_allow_html=True)
+    st.markdown(
+        '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">',
+        unsafe_allow_html=True,
+    )
+
 
 def st_button(icon, url, label, iconsize):
-    if icon == 'youtube':
-        button_code = f'''
+    if icon == "youtube":
+        button_code = f"""
         <p>
             <a href={url} class="btn btn-outline-primary btn-lg btn-block" type="button" aria-pressed="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width={iconsize} height={iconsize} fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
@@ -15,9 +20,9 @@ def st_button(icon, url, label, iconsize):
                 </svg>  
                 {label}
             </a>
-        </p>'''
-    elif icon == 'twitter':
-        button_code = f'''
+        </p>"""
+    elif icon == "twitter":
+        button_code = f"""
         <p>
         <a href={url} class="btn btn-outline-primary btn-lg btn-block" type="button" aria-pressed="true">
             <svg xmlns="http://www.w3.org/2000/svg" width={iconsize} height={iconsize} fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
@@ -25,9 +30,9 @@ def st_button(icon, url, label, iconsize):
             </svg>
             {label}
         </a>
-        </p>'''
-    elif icon == 'linkedin':
-        button_code = f'''
+        </p>"""
+    elif icon == "linkedin":
+        button_code = f"""
         <p>
             <a href={url} class="btn btn-outline-primary btn-lg btn-block" type="button" aria-pressed="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width={iconsize} height={iconsize} fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
@@ -35,9 +40,9 @@ def st_button(icon, url, label, iconsize):
                 </svg>
                 {label}
             </a>
-        </p>''' 
-    elif icon == 'medium':
-        button_code = f'''
+        </p>"""
+    elif icon == "medium":
+        button_code = f"""
         <p>
             <a href={url} class="btn btn-outline-primary btn-lg btn-block" type="button" aria-pressed="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width={iconsize} height={iconsize} fill="currentColor" class="bi bi-medium" viewBox="0 0 16 16">
@@ -45,9 +50,9 @@ def st_button(icon, url, label, iconsize):
                 </svg>
                 {label}
             </a>
-        </p>'''
-    elif icon == 'newsletter':
-        button_code = f'''
+        </p>"""
+    elif icon == "newsletter":
+        button_code = f"""
         <p>
             <a href={url} class="btn btn-outline-primary btn-lg btn-block" type="button" aria-pressed="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width={iconsize} height={iconsize} fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
@@ -55,9 +60,21 @@ def st_button(icon, url, label, iconsize):
                 </svg>
                 {label}
             </a>
-        </p>'''
-    elif icon == 'cup':
-        button_code = f'''
+        </p>"""
+
+    elif icon == "document":
+        button_code = f"""
+        <p>
+            <a href={url} class="btn btn-outline-primary btn-lg btn-block" type="button" aria-pressed="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+                <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/>
+                <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/>
+                </svg>
+                {label}
+            </a>
+        </p>"""
+    elif icon == "cup":
+        button_code = f"""
         <p>
             <a href={url} class="btn btn-outline-primary btn-lg btn-block" type="button" aria-pressed="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width={iconsize} height={iconsize} fill="currentColor" class="bi bi-cup-fill" viewBox="0 0 16 16">
@@ -65,12 +82,12 @@ def st_button(icon, url, label, iconsize):
                 </svg>
                 {label}
             </a>
-        </p>'''
-    elif icon == '':
-        button_code = f'''
+        </p>"""
+    elif icon == "":
+        button_code = f"""
         <p>
             <a href={url} class="btn btn-outline-primary btn-lg btn-block" type="button" aria-pressed="true">
                 {label}
             </a>
-        </p>'''
+        </p>"""
     return st.markdown(button_code, unsafe_allow_html=True)
